@@ -25,6 +25,5 @@ class FacebookUsersTest(TestCase):
         self.assertEqual(user.username, USER_USERNAME)
         self.assertEqual(user.gender, 'male')
         self.assertEqual(user.locale, 'en_US')
-        self.assertEqual(user.third_party_id, 'y5pSiHsPbHpZpmAnGfcIjrR0rMA')
         self.assertTrue(isinstance(user.cover, dict))
         self.assertTrue(isinstance(user.updated_time, datetime))
