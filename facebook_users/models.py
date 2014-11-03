@@ -10,14 +10,13 @@ class FacebookUserGraphManager(FacebookGraphManager):
 
     def fetch(self, *args, **kwargs):
         if 'fields' not in kwargs:
-            kwargs['fields'] = 'bio,address,email,gender,id,languages,link,installed,first_name,cover,about,education,currency,devices,birthday,religion,favorite_athletes,favorite_teams,hometown,inspirational_people,interested_in,sports,quotes,meeting_for,username,middle_name,work,website,last_name,video_upload_limits,verified,name,locale,location,payment_pricepoints,political,security_settings,relationship_status,significant_other,third_party_id,timezone,updated_time'
+            kwargs['fields'] = 'bio,address,email,gender,id,languages,link,installed,first_name,cover,about,education,currency,devices,birthday,religion,favorite_athletes,favorite_teams,hometown,inspirational_people,interested_in,sports,quotes,meeting_for,username,middle_name,work,website,last_name,video_upload_limits,verified,name,locale,location,payment_pricepoints,political,security_settings,relationship_status,significant_other,third_party_id,timezone,updated_time,age_range'
         return super(FacebookUserGraphManager, self).fetch(*args, **kwargs)
 
 class User(FacebookGraphIDModel):
     class Meta:
         verbose_name = 'Facebook user'
         verbose_name_plural = 'Facebook users'
-        ordering = ['graph_id']
 
     name = models.CharField(max_length=300, help_text='The user\'s full name')
 
@@ -77,3 +76,12 @@ class User(FacebookGraphIDModel):
 
     def picture_url(self, w, h):
         return 'https://graph.facebook.com/%s/picture?width=%d&height=%d' % (self.graph_id, w, h)
+
+    def set_name(self, name):
+        name_parts = name.split()
+        self.first_name = name_parts[0]
+        if len(name_parts) == 2:
+            self.last_name = name_parts[1]
+        elif len(name_parts) > 2:
+            self.middle_name = name_parts[1]
+            self.last_name = ' '.join(name_parts[2:])
