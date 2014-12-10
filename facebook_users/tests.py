@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
-from django.test import TestCase
-from models import User
 from datetime import datetime
+
+from django.test import TestCase
+
+from .models import User
 
 USER_ID = '4'
 USER_USERNAME = 'zuck'
+
 
 class FacebookUsersTest(TestCase):
 
@@ -21,7 +24,7 @@ class FacebookUsersTest(TestCase):
         self.assertEqual(user.name, u'Mark Zuckerberg')
         self.assertEqual(user.first_name, 'Mark')
         self.assertEqual(user.last_name, 'Zuckerberg')
-        self.assertEqual(user.link, 'http://www.facebook.com/zuck')
+        self.assertEqual(user.link, 'https://www.facebook.com/zuck')
         self.assertEqual(user.username, USER_USERNAME)
         self.assertEqual(user.gender, 'male')
         self.assertEqual(user.locale, 'en_US')
