@@ -1,10 +1,12 @@
-# Django Facebook Graph API Users
+Django Facebook Graph API Users
+===============================
 
-[![Build Status](https://travis-ci.org/ramusus/django-facebook-users.png?branch=master)](https://travis-ci.org/ramusus/django-facebook-users) [![Coverage Status](https://coveralls.io/repos/ramusus/django-facebook-users/badge.png?branch=master)](https://coveralls.io/r/ramusus/django-facebook-users)
+[![PyPI version](https://badge.fury.io/py/django-facebook-users.png)](http://badge.fury.io/py/django-facebook-users) [![Build Status](https://travis-ci.org/ramusus/django-facebook-users.png?branch=master)](https://travis-ci.org/ramusus/django-facebook-users) [![Coverage Status](https://coveralls.io/repos/ramusus/django-facebook-users/badge.png?branch=master)](https://coveralls.io/r/ramusus/django-facebook-users)
 
 Application for interacting with Facebook Graph API Users objects using Django model interface
 
-## Installation
+Installation
+------------
 
     pip install django-facebook-users
 
@@ -25,7 +27,8 @@ Add into `settings.py` lines:
     OAUTH_TOKENS_FACEBOOK_USERNAME = ''                                # user login
     OAUTH_TOKENS_FACEBOOK_PASSWORD = ''                                # user password
 
-## Usage examples
+Usage examples
+--------------
 
 ### Fetch user by Graph ID
 
@@ -80,8 +83,8 @@ Add into `settings.py` lines:
      'website': '',
      'work': None}
 
-### Fetch user by slug
+Licensing
+---------
 
-    >>> from facebook_users.models import User
-    >>> User.remote.fetch('zuck')
-    <User: Mark Zuckerberg>
+This library uses the [Apache License, version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
+Please see the library's individual files for more information.
