@@ -57,7 +57,7 @@ class User(FacebookGraphIDModel):
     installed = fields.JSONField(max_length=500, null=True, help_text='Specifies whether the user has installed the application associated with the app access token that is used to make the request; only returned if specifically requested via the fields URL parameter')
 
     # TODO: rename to is_verified according to https://developers.facebook.com/tools/explorer/291716840848442/?method=GET&path=100000007637389%3Ffields%3Dcover%2Ccurrency%2Cemail%2Cabout%2Cage_range%2Cbirthday%2Cgender%2Chometown%2Cid%2Cdevices%2Cfirst_name%2Clast_name%2Caddress%2Cinstall_type%2Cinstalled%2Cinterested_in%2Clanguages%2Clink%2Clocation%2Cmeeting_for%2Cbio%2Ceducation%2Cmiddle_name%2Cname_format%2Cname%2Cinspirational_people%2Cpolitical%2Cquotes%2Crelationship_status%2Creligion%2Csecurity_settings%2Csignificant_other%2Csports%2Cwork%2Cwebsite%2Ctimezone%2Ctelevision%2Ctagged%2Cupdated_time%2Cvideo_upload_limits%2Cphotos%2Cpicture%2Cposts%2Calbums%2Cgames%2Cverified%2Cvideos%2Cbooks%2Cmusic%2Cis_verified&
-    verified = models.BooleanField(help_text='The user\'s account verification status, either true or false (see below)')
+    verified = models.BooleanField(default=False, help_text='The user\'s account verification status, either true or false (see below)')
 
     currency = fields.JSONField(max_length=500, null=True, help_text='The user\'s currency settings (must be explicitly requested using a fields=currency URL parameter)')
     devices = fields.JSONField(max_length=500, null=True, help_text='A list of the user\'s devices beyond desktop')
